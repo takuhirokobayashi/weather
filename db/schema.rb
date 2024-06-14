@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_26_113113) do
   end
 
   create_table "measurements", force: :cascade do |t|
+    t.bigint "weather_station_id", null: false
+    t.datetime "observation_date_time", null: false
     t.decimal "temperature", precision: 5, scale: 2
     t.integer "temperature_quality_information", null: false
     t.integer "temperature_homogeneity_number", null: false
@@ -74,8 +76,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_26_113113) do
     t.integer "visibility_homogeneity_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "weather_station_id", null: false
-    t.datetime "observation_date_time"
     t.index ["weather_station_id"], name: "index_measurements_on_weather_station_id"
     t.index ["weather_symbol_id"], name: "index_measurements_on_weather_symbol_id"
     t.index ["wind_direction_id"], name: "index_measurements_on_wind_direction_id"

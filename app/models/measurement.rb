@@ -176,7 +176,7 @@ class Measurement < ApplicationRecord
       process_csv_row( weather_station_id, weather_request, row, request_time )
     end
 
-    weather_requests = weather_requests.where.not( id: delete_ids )
+    weather_requests = weather_requests.delete_if {|weather_request| delete_ids.include?( weather_request.id ) }
     check_for_remaining_requests( weather_requests, weather_station_id, start_date, end_date, request_time )
   end
 

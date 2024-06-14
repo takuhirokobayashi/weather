@@ -174,29 +174,35 @@ export default function WeatherRequestTable() {
                 <TableRow key = { format( val.wr_observation_date_time, 'yyyyMMddHH' ) }>
                   <TableCell align = 'left'>{ format( val.wr_observation_date_time, 'yyyy/MM/dd HH時' ) }</TableCell>
                   {
-                    null === val.measurement_id ? (
+                    ( 'error' == val.status || 'none_record' == val.status ) ? (
                       <TableCell colSpan = { 16 }>
-                        <LoadingBar />
+                        { '観測所が無いためデータが存在しない、もしくはデータ形式に問題がある' }
                       </TableCell>
                     ) : (
-                      <>
-                        <TableCell align = 'right'>{ null === val.temperature ? '' : val.temperature + ' ℃' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.precipitation ? '' : val.precipitation + ' mm' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.snowfall ? '' : val.snowfall + ' cm' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.snow_depth ? '' : val.snow_depth + ' cm' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.sunshine_duration ? '' : val.sunshine_duration + ' 時間' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.wind_speed ? '' : val.wind_speed + ' m/s' }</TableCell>
-                        <TableCell>{ null === val.compass_direction ? '' : val.compass_direction }</TableCell>
-                        <TableCell align = 'right'>{ null === val.solar_radiation ? '' : val.solar_radiation + ' MJ/㎡' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.local_atmospheric_pressure ? '' : val.local_atmospheric_pressure + ' hPa' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.sea_atmospheric_pressure ? '' : val.sea_atmospheric_pressure + ' hPa' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.relative_humidity ? '' : val.relative_humidity + ' ％' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.vapor_pressure ? '' : val.vapor_pressure + ' hPa' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.dew_point_temperature ? '' : val.dew_point_temperature + ' ℃' }</TableCell>
-                        <TableCell>{ null === val.weather ? '' : val.weather }</TableCell>
-                        <TableCell align = 'right'>{ null === val.cloud_cover ? '' : val.cloud_cover + ' 10分比' }</TableCell>
-                        <TableCell align = 'right'>{ null === val.visibility ? '' : val.visibility + ' km' }</TableCell>
-                      </>
+                      null === val.measurement_id ? (
+                        <TableCell colSpan = { 16 }>
+                          <LoadingBar />
+                        </TableCell>
+                      ) : (
+                        <>
+                          <TableCell align = 'right'>{ null === val.temperature ? '' : val.temperature + ' ℃' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.precipitation ? '' : val.precipitation + ' mm' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.snowfall ? '' : val.snowfall + ' cm' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.snow_depth ? '' : val.snow_depth + ' cm' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.sunshine_duration ? '' : val.sunshine_duration + ' 時間' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.wind_speed ? '' : val.wind_speed + ' m/s' }</TableCell>
+                          <TableCell>{ null === val.compass_direction ? '' : val.compass_direction }</TableCell>
+                          <TableCell align = 'right'>{ null === val.solar_radiation ? '' : val.solar_radiation + ' MJ/㎡' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.local_atmospheric_pressure ? '' : val.local_atmospheric_pressure + ' hPa' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.sea_atmospheric_pressure ? '' : val.sea_atmospheric_pressure + ' hPa' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.relative_humidity ? '' : val.relative_humidity + ' ％' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.vapor_pressure ? '' : val.vapor_pressure + ' hPa' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.dew_point_temperature ? '' : val.dew_point_temperature + ' ℃' }</TableCell>
+                          <TableCell>{ null === val.weather ? '' : val.weather }</TableCell>
+                          <TableCell align = 'right'>{ null === val.cloud_cover ? '' : val.cloud_cover + ' 10分比' }</TableCell>
+                          <TableCell align = 'right'>{ null === val.visibility ? '' : val.visibility + ' km' }</TableCell>
+                        </>
+                      )
                     )
                   }
                 </TableRow>

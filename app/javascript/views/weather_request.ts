@@ -1,4 +1,4 @@
-import { parse, isBefore, addHours, addDays, isEqual, } from "date-fns"
+import { parse, isBefore, addHours, addDays, isEqual, parseISO, } from "date-fns"
 import { BigNumber } from 'bignumber.js'
 
 export interface WeatherRequestModel {
@@ -184,8 +184,7 @@ class WeatherRequest {
         weather_requests_buffer = weather_requests_buffer.map(
           ( val: WeatherRequestModel, ) => (
             (
-              isEqual( val.wr_observation_date_time, row.wr_observation_date_time ) &&
-              null === val.measurement_id && null !== row.measurement_id
+              isEqual( val.wr_observation_date_time, row.wr_observation_date_time )
             ) ?
             row : val
           )
@@ -335,7 +334,7 @@ class WeatherRequest {
     let dateBuffer: Date
     try {
       if ( arg.includes( 'T' ) ) {
-        dateBuffer = parse( arg, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", new Date() )
+        dateBuffer = parseISO( arg )
       } else {
         dateBuffer = parse( arg, 'yyyy-MM-dd HH:mm:ss', new Date() )
       }
