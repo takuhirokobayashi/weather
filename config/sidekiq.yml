@@ -1,0 +1,5 @@
+:timeout: 25
+:queues:
+  - default
+  - jma_request
+  - queue_manager

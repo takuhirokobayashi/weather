@@ -1,0 +1,52 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+totonan:
+  compass_direction: 東東南
+
+north:
+  compass_direction: 北
+
+north-northeast:
+  compass_direction: 北北東
+
+northeast:
+  compass_direction: 北東
+
+east-northeast:
+  compass_direction: 東北東
+
+east:
+  compass_direction: 東
+
+east-southeast:
+  compass_direction: 東南東
+
+southeast:
+  compass_direction: 南東
+
+south-southeast:
+  compass_direction: 南南東
+
+south:
+  compass_direction: 南
+
+south-southwest:
+  compass_direction: 南南西
+
+southwest:
+  compass_direction: 南西
+
+west-southwest:
+  compass_direction: 西南西
+
+west:
+  compass_direction: 西
+
+west-northwest:
+  compass_direction: 西北西
+
+northwest:
+  compass_direction: 北西
+
+north-northwest:
+  compass_direction: 北北西

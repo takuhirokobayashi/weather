@@ -1,0 +1,483 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+initial:
+  observation_location: negibozu
+  observation_date_time: 2024-01-01 01:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+cancelled:
+  observation_location: negibozu
+  observation_date_time: 2024-01-01 02:00:00 +09:00
+  status: cancelled
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+retry:
+  observation_location: negibozu
+  observation_date_time: 2024-01-01 03:00:00 +09:00
+  status: retry
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 1
+  error_message: 
+
+error:
+  observation_location: negibozu
+  observation_date_time: 2024-01-01 04:00:00 +09:00
+  status: error
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: バグバグ
+
+success:
+  observation_location: negibozu
+  observation_date_time: 2024-01-01 05:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 0
+  error_message: 
+  measurement: one
+
+none_record:
+  observation_location: negibozu
+  observation_date_time: 2024-01-01 06:00:00 +09:00
+  status: none_record
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+tengoku_one:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 01:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_one
+
+tengoku_two:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 02:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_two
+
+tengoku_three:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 03:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_three
+
+tengoku_four:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 04:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_four
+
+tengoku_five:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 05:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_five
+
+tengoku_six:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 06:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_six
+
+tengoku_seven:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 07:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_seven
+
+tengoku_eight:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 08:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_eight
+
+tengoku_nine:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 09:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_nine
+
+tengoku_ten:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 10:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten
+
+tengoku_ten_one:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 11:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_one
+
+tengoku_ten_two:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 12:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_two
+
+tengoku_ten_three:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 13:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_three
+
+tengoku_ten_four:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 14:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_four
+
+tengoku_ten_five:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 15:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_five
+
+tengoku_ten_six:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 16:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_six
+
+tengoku_ten_seven:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 17:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_seven
+
+tengoku_ten_eight:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 18:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_eight
+
+tengoku_ten_nine:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 19:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_ten_nine
+
+tengoku_tweten:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 20:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_tweten
+
+tengoku_tweten_one:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 21:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_tweten_one
+
+tengoku_tweten_two:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 22:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_tweten_two
+
+tengoku_tweten_three:
+  observation_location: tengoku
+  observation_date_time: 2022-01-01 23:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_tweten_three
+
+tengoku_tweten_four:
+  observation_location: tengoku
+  observation_date_time: 2022-01-02 00:00:00 +09:00
+  status: success
+  request_time: 2024-04-15 13:00:00 +09:00
+  success_time: 2024-04-15 14:00:00 +09:00
+  retry_count: 10
+  error_message: 
+  measurement: tengoku_tweten_four
+
+jigoku_one:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 01:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_two:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 02:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_three:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 03:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_four:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 04:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_five:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 05:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_six:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 06:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_seven:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 07:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_eight:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 08:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_nine:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 09:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 10:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_one:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 11:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_two:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 12:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_three:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 13:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_four:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 14:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_five:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 15:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_six:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 16:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_seven:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 17:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_eight:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 18:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_ten_nine:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 19:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_tweten:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 20:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_tweten_one:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 21:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_tweten_two:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 22:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_tweten_three:
+  observation_location: jigoku
+  observation_date_time: 2023-01-01 23:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 
+
+jigoku_tweten_four:
+  observation_location: jigoku
+  observation_date_time: 2023-01-02 00:00:00 +09:00
+  status: initial
+  request_time: 2024-04-15 13:00:00 +09:00
+  retry_count: 0
+  error_message: 

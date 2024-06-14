@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+negibozu:
+  stid: a12345
+  stname: ねぎぼうず
+
+tengoku:
+  stid: yeah8282
+  stname: ごくらく
+
+jigoku:
+  stid: 4949yoro
+  stname: へる
+
+hutuu:
+  stid: hutuu2222
+  stname: ふつー
+
+anoyo:
+  stid: 1919pyonn
+  stname: アノヨー

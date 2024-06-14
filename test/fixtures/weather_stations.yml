@@ -1,0 +1,217 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+fujissaan:
+  observation_location: negibozu
+  station_number: 88888
+  station_name: ふっじっさーん
+  station_name_kana: ﾌｯｼﾞｯｻｰﾝ
+  station_name_romaji: fujjissaann
+  snow_gauge_station_name: 
+  snow_gauge_station_name_kana: 
+  snow_gauge_station_name_romaji: 
+  latitude_degrees: 1
+  latitude_minutes: 9.99
+  longitude_degrees: 1
+  longitude_minutes: 9.99
+  height_above_sea_level: 1
+  height_of_anemometer: 9.99
+  latitude_degrees_snow: 1
+  latitude_minutes_snow: 9.99
+  longitude_degrees_snow: 1
+  longitude_minutes_snow: 9.99
+  height_above_sea_level_snow: 1
+  precipitation_measurement_summary: false
+  wind_measurement_summary: false
+  temperature_measurement_summary: false
+  sunshine_duration_measurement_summary: 0
+  snow_depth_measurement_summary: false
+  humidity_measurement_summary: false
+  observation_start_date: 1999-04-14
+  observation_end_date: 3000-04-14
+  old_station_number: 88888
+  precipitation_statistics_link: 0
+  wind_statistics_link: 0
+  temperature_statistics_link: 0
+  sunshine_duration_statistics_link: 0
+  snow_depth_statistics_link: 0
+  humidity_statistics_link: 0
+
+tinoike:
+  observation_location: jigoku
+  station_number: 494949
+  station_name: 血の池
+  station_name_kana: ﾁﾉｲｹ
+  station_name_romaji: tinoike
+  snow_gauge_station_name: 
+  snow_gauge_station_name_kana: 
+  snow_gauge_station_name_romaji: 
+  latitude_degrees: 1
+  latitude_minutes: 9.99
+  longitude_degrees: 1
+  longitude_minutes: 9.99
+  height_above_sea_level: 1
+  height_of_anemometer: 9.99
+  latitude_degrees_snow: 1
+  latitude_minutes_snow: 9.99
+  longitude_degrees_snow: 1
+  longitude_minutes_snow: 9.99
+  height_above_sea_level_snow: 1
+  precipitation_measurement_summary: false
+  wind_measurement_summary: false
+  temperature_measurement_summary: false
+  sunshine_duration_measurement_summary: 0
+  snow_depth_measurement_summary: false
+  humidity_measurement_summary: false
+  observation_start_date: 1999-04-14
+  observation_end_date: 3000-04-14
+  old_station_number: 88888
+  precipitation_statistics_link: 0
+  wind_statistics_link: 0
+  temperature_statistics_link: 0
+  sunshine_duration_statistics_link: 0
+  snow_depth_statistics_link: 0
+  humidity_statistics_link: 0
+
+hutuu:
+  observation_location: hutuu
+  station_number: 0123456
+  station_name: 普通のでぇた
+  station_name_kana: ﾌﾂｰ
+  station_name_romaji: hutuu
+  snow_gauge_station_name: 
+  snow_gauge_station_name_kana: 
+  snow_gauge_station_name_romaji: 
+  latitude_degrees: 1
+  latitude_minutes: 9.99
+  longitude_degrees: 1
+  longitude_minutes: 9.99
+  height_above_sea_level: 1
+  height_of_anemometer: 9.99
+  latitude_degrees_snow: 1
+  latitude_minutes_snow: 9.99
+  longitude_degrees_snow: 1
+  longitude_minutes_snow: 9.99
+  height_above_sea_level_snow: 1
+  precipitation_measurement_summary: false
+  wind_measurement_summary: false
+  temperature_measurement_summary: false
+  sunshine_duration_measurement_summary: 0
+  snow_depth_measurement_summary: false
+  humidity_measurement_summary: false
+  observation_start_date: 1999-04-14
+  observation_end_date: 3000-04-14
+  old_station_number: 0123456
+  precipitation_statistics_link: 0
+  wind_statistics_link: 0
+  temperature_statistics_link: 0
+  sunshine_duration_statistics_link: 0
+  snow_depth_statistics_link: 0
+  humidity_statistics_link: 0
+
+ityoume:
+  observation_location: anoyo
+  station_number: 111111
+  station_name: 一丁目
+  station_name_kana: ｲｯﾁｮｳﾒ
+  station_name_romaji: ityoume
+  snow_gauge_station_name: 
+  snow_gauge_station_name_kana: 
+  snow_gauge_station_name_romaji: 
+  latitude_degrees: 1
+  latitude_minutes: 9.99
+  longitude_degrees: 1
+  longitude_minutes: 9.99
+  height_above_sea_level: 1
+  height_of_anemometer: 9.99
+  latitude_degrees_snow: 1
+  latitude_minutes_snow: 9.99
+  longitude_degrees_snow: 1
+  longitude_minutes_snow: 9.99
+  height_above_sea_level_snow: 1
+  precipitation_measurement_summary: false
+  wind_measurement_summary: false
+  temperature_measurement_summary: false
+  sunshine_duration_measurement_summary: 0
+  snow_depth_measurement_summary: false
+  humidity_measurement_summary: false
+  observation_start_date: 1999-04-14
+  observation_end_date: 2022-01-07
+  old_station_number: 111111
+  precipitation_statistics_link: 0
+  wind_statistics_link: 0
+  temperature_statistics_link: 0
+  sunshine_duration_statistics_link: 0
+  snow_depth_statistics_link: 0
+  humidity_statistics_link: 0
+
+nityoume:
+  observation_location: anoyo
+  station_number: 222222
+  station_name: 二丁目
+  station_name_kana: ﾆｬﾛﾒ
+  station_name_romaji: nyarome
+  snow_gauge_station_name: 
+  snow_gauge_station_name_kana: 
+  snow_gauge_station_name_romaji: 
+  latitude_degrees: 1
+  latitude_minutes: 9.99
+  longitude_degrees: 1
+  longitude_minutes: 9.99
+  height_above_sea_level: 1
+  height_of_anemometer: 9.99
+  latitude_degrees_snow: 1
+  latitude_minutes_snow: 9.99
+  longitude_degrees_snow: 1
+  longitude_minutes_snow: 9.99
+  height_above_sea_level_snow: 1
+  precipitation_measurement_summary: false
+  wind_measurement_summary: false
+  temperature_measurement_summary: false
+  sunshine_duration_measurement_summary: 0
+  snow_depth_measurement_summary: false
+  humidity_measurement_summary: false
+  observation_start_date: 2022-01-07
+  observation_end_date: 2022-01-07
+  old_station_number: 111111
+  precipitation_statistics_link: 0
+  wind_statistics_link: 0
+  temperature_statistics_link: 0
+  sunshine_duration_statistics_link: 0
+  snow_depth_statistics_link: 0
+  humidity_statistics_link: 0
+
+santyoume:
+  observation_location: anoyo
+  station_number: 333333
+  station_name: 三丁目
+  station_name_kana: ｻﾝﾎﾟｰﾙ
+  station_name_romaji: shuhunotomo
+  snow_gauge_station_name: 
+  snow_gauge_station_name_kana: 
+  snow_gauge_station_name_romaji: 
+  latitude_degrees: 1
+  latitude_minutes: 9.99
+  longitude_degrees: 1
+  longitude_minutes: 9.99
+  height_above_sea_level: 1
+  height_of_anemometer: 9.99
+  latitude_degrees_snow: 1
+  latitude_minutes_snow: 9.99
+  longitude_degrees_snow: 1
+  longitude_minutes_snow: 9.99
+  height_above_sea_level_snow: 1
+  precipitation_measurement_summary: false
+  wind_measurement_summary: false
+  temperature_measurement_summary: false
+  sunshine_duration_measurement_summary: 0
+  snow_depth_measurement_summary: false
+  humidity_measurement_summary: false
+  observation_start_date: 2022-01-08
+  observation_end_date: 3000-04-14
+  old_station_number: 222222
+  precipitation_statistics_link: 0
+  wind_statistics_link: 0
+  temperature_statistics_link: 0
+  sunshine_duration_statistics_link: 0
+  snow_depth_statistics_link: 0
+  humidity_statistics_link: 0

@@ -1,0 +1,9 @@
+データのダウンロード方法
+  region
+  curl -X POST -d 'pd=00' https://www.data.jma.go.jp/gmd/risk/obsdl/top/station
+
+  observation_location (青森)
+  curl -X POST -d 'pd=31' https://www.data.jma.go.jp/gmd/risk/obsdl/top/station
+
+  weather_station (CSV、各列固定長)
+  curl https://www.data.jma.go.jp/stats/data/mdrr/chiten/meta/amdmaster.index4

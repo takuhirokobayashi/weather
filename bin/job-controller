@@ -1,0 +1,194 @@
+#!/usr/bin/env ruby
+
+require File.expand_path( '../../config/environment', __FILE__ )
+require 'logger'
+
+job_controller_log_file_path = File.expand_path( '../../log/job-controller.log', __FILE__ )
+@job_controller_logger = Logger.new( job_controller_log_file_path )
+@job_controller_logger.level = Logger::INFO
+
+@job_controller_logger.info 'job-controller 開始'
+
+if AppState.out_of_service?
+  @job_controller_logger.info '障害中なので停止、デッドキュー辺りを見直してください、問題が無ければ手動でステータス更新'
+  exit
+end
+
+AppState.set_active
+WeatherRequest.retry_cancelled_requests
+
+retry_list = []
+good_count = 0
+bad_count = 0
+throttled_count = 0
+throttled_operation_time = Time.now
+stop_requested = false
+ping_success_required = rand( 3..10 )
+
+Signal.trap( 'INT' ) { stop_requested = true }
+Signal.trap( 'TERM' ) { stop_requested = true }
+
+def generate_retry_list
+  retrying = WeatherRequest.retrying
+  .order( :observation_location_id, :observation_date_time )
+  .pluck( :observation_location_id, :observation_date_time ).map do |rec|
+    [rec[0], adjust_date( rec[1] ) ]
+  end.uniq
+
+  return [] if 0 == retrying.length
+
+  start_id = retrying.first[0]
+  start_date = retrying.first[1]
+  end_date = start_date
+  retry_list = []
+
+  retrying.each_with_index do |rec, index|
+    next if index == retrying.length - 1
+    next_id, next_date = retrying[index + 1]
+    if start_id != next_id || rec[1] + 1.day != next_date
+      retry_list.push( [start_id, start_date, end_date] )
+      start_id = next_id
+      start_date = next_date
+    end
+    end_date = next_date
+  end
+
+  retry_list.push( [start_id, start_date, end_date] )
+
+  retry_list
+end
+
+def ping_request( retry_list )
+  index = rand( retry_list.length )
+  observation_location_id, start_date, end_date = retry_list[index]
+
+  date_range = ( start_date..end_date ).to_a
+  selected_date = date_range.sample
+
+  retry_list.delete_at( index )
+  if 1 < date_range.length
+    if selected_date == start_date
+      retry_list << [observation_location_id, start_date + 1.day, end_date]
+    elsif selected_date == end_date
+      retry_list << [observation_location_id, start_date, end_date - 1.day]
+    else
+      retry_list << [observation_location_id, start_date, selected_date - 1.day]
+      retry_list << [observation_location_id, selected_date + 1.day, end_date]
+    end
+  end
+
+  delay_seconds = rand( 1..180 )
+  QueueManagerJob.set( wait: delay_seconds.seconds ).perform_async( observation_location_id, selected_date.to_s, selected_date.to_s )
+
+  throttled_operation_time = Time.now + delay_seconds.seconds
+
+  @job_controller_logger.info "#{throttled_operation_time} に試し撃ちジョブ開始 observation location id = #{observation_location_id} date = #{selected_date}"
+
+  return retry_list, throttled_operation_time
+end
+
+def handle_overloaded_state( good_count, bad_count, throttled_operation_time, ping_success_required )
+  if WeatherRequest.none_queueing?
+    @job_controller_logger.info "ジョブキャンセル待ち確認成功(複数回行われる)"
+    good_count += 1
+  else
+    @job_controller_logger.info "ジョブキャンセル待ち確認失敗"
+    WeatherRequest.cancel_requests
+    good_count = 0
+    bad_count += 1
+  end
+
+  if 2 < bad_count
+    AppState.set_out_of_service
+    @job_controller_logger.error "ジョブキャンセル待ち確認失敗複数回発生したのでサービス終了"
+    return 0, 0, throttled_operation_time, ping_success_required, []
+  else
+    if 2 < good_count &&
+      0 == Sidekiq::Queue.new( 'jma_request' ).size &&
+      0 == Sidekiq::Queue.new( 'queue_manager' ).size
+      @job_controller_logger.info "ジョブキャンセル待ち確認終了"
+      WeatherRequest.retry_cancelled_requests
+      @job_controller_logger.info "リトライ設定終了"
+      AppState.set_throttled_operation
+      retry_list = generate_retry_list
+      if 0 == retry_list.length
+        AppState.set_active
+        @job_controller_logger.info "リトライリスト全消化"
+        return 0, 0, throttled_operation_time, ping_success_required, retry_list
+      else
+        retry_list, throttled_operation_time = ping_request( retry_list )
+        return 0, 0, throttled_operation_time, rand( 3..10 ), retry_list
+      end
+    end
+  end
+
+  return good_count, bad_count, throttled_operation_time, ping_success_required, []
+end
+
+def adjust_date( date_time )
+  ( date_time - 1.hour ).to_date
+end
+
+def process_pending_request( retry_list )
+  delay_seconds = 0
+  retry_list.each do |rec|
+    QueueManagerJob.set( wait: ( delay_seconds * 5 ).seconds ).perform_async( rec[0], rec[1].to_s, rec[2].to_s )
+    delay_seconds += 1
+  end
+  retry_list = []
+end
+
+def handle_throttled_operation( throttled_operation_time, ping_success_required, retry_list, throttled_count )
+  if 0 == retry_list.length
+    AppState.set_active
+    @job_controller_logger.info "リトライリスト全消化"
+    return throttled_operation_time, [], 0
+  end
+
+  if throttled_operation_time + 3.minutes < Time.now
+    AppState.set_out_of_service
+    @job_controller_logger.error "試し撃ち中にタイムアウト"
+    return throttled_operation_time, [], 0
+  end
+
+  if throttled_operation_time < WeatherRequest.successful.maximum( :updated_at )
+    throttled_count += 1
+
+    if ping_success_required <= throttled_count
+      process_pending_request( retry_list )
+      AppState.set_active
+      @job_controller_logger.info "試し撃ち終了、通常モードに復帰"
+
+      return throttled_operation_time, [], 0
+    else
+      retry_list, throttled_operation_time = ping_request( retry_list )
+    end
+  end
+
+  return throttled_operation_time, retry_list, throttled_count
+end
+
+loop do
+  break if stop_requested
+
+  if AppState.out_of_service?
+    @job_controller_logger.info '障害状態を検知しました'
+    break
+  elsif AppState.overloaded?
+    @job_controller_logger.info 'アクセスビジー状態なので待機'
+    good_count, bad_count, throttled_operation_time, ping_success_required, retry_list = handle_overloaded_state(
+      good_count, bad_count, throttled_operation_time, ping_success_required
+    )
+  elsif AppState.throttled_operation?
+    throttled_operation_time, retry_list, throttled_count = handle_throttled_operation(
+      throttled_operation_time, ping_success_required, retry_list, throttled_count
+    )
+  end
+
+  sleep( 1 )
+end
+
+WeatherRequest.cancel_requests
+AppState.set_down
+
+@job_controller_logger.info 'job-controller 終了'

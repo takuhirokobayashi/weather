@@ -1,0 +1,152 @@
+ja:
+  activerecord:
+    models:
+      measurement: 観測値
+      observation_location: 観測地点
+      region: 地域
+      weather_station: AMEDAS地点情報
+      weather_symbol: 天気記号
+      wind_direction: 風向
+      weather_request: リクエスト状況
+
+    attributes:
+      measurement:
+        temperature: 気温
+        temperature_quality_information: 気温－品質情報
+        temperature_homogeneity_number: 気温－均質番号
+        precipitation: 降水量
+        precipitation_no_phenomena_information: 降水量－現象なし情報
+        precipitation_quality_information: 降水量－品質情報
+        precipitation_homogeneity_number: 降水量－均質番号
+        snowfall: 降雪
+        snowfall_no_phenomena_information: 降雪－現象なし情報
+        snowfall_quality_information: 降雪－品質情報
+        snowfall_homogeneity_number: 降雪－均質番号
+        snow_depth: 積雪
+        snow_depth_no_phenomena_information: 積雪－現象なし情報
+        snow_depth_quality_information: 積雪－品質情報
+        snow_depth_homogeneity_number: 積雪－均質番号
+        sunshine_duration: 日照時間
+        sunshine_duration_no_phenomena_information: 日照時間－現象なし情報
+        sunshine_duration_quality_information: 日照時間－品質情報
+        sunshine_duration_homogeneity_number: 日照時間－均質番号
+        wind_speed: 風速
+        wind_speed_quality_information: 風速－品質情報
+        wind_direction_quality_information: 風向－品質情報
+        wind_direction_homogeneity_number: 風向－均質番号
+        solar_radiation: 日射量
+        solar_radiation_quality_information: 日射量－品質情報
+        solar_radiation_homogeneity_number: 日射量－均質番号
+        local_atmospheric_pressure: 現地気圧
+        local_atmospheric_pressure_quality_information: 現地気圧－品質情報
+        local_atmospheric_pressure_homogeneity_number: 現地気圧－均質番号
+        sea_atmospheric_pressure: 海面気圧
+        sea_atmospheric_pressure_quality_information: 海面気圧－品質情報
+        sea_atmospheric_pressure_homogeneity_number: 海面気圧－均質番号
+        relative_humidity: 相対湿度
+        relative_humidity_quality_information: 相対湿度－品質情報
+        relative_humidity_homogeneity_number: 相対湿度－均質番号
+        vapor_pressure: 蒸気圧
+        vapor_pressure_quality_information: 蒸気圧－品質情報
+        vapor_pressure_homogeneity_number: 蒸気圧－均質番号
+        dew_point_temperature: 露点温度
+        dew_point_temperature_quality_information: 露点温度－品質情報
+        dew_point_temperature_homogeneity_number: 露点温度－均質番号
+        weather_symbol_id: 天気
+        weather_quality_information: 天気－品質情報
+        weather_homogeneity_number: 天気－均質番号
+        cloud_cover: 雲量
+        cloud_cover_quality_information: 雲量－品質情報
+        cloud_cover_homogeneity_number: 雲量－均質番号
+        visibility: 視程
+        visibility_quality_information: 視程－品質情報
+        visibility_homogeneity_number: 視程－均質番号
+      observation_location:
+        stid: ステーションID
+        stname: ステーション名
+      region:
+        prid: リージョンID
+        name: 名称
+      weather_station:
+        station_number: 観測所番号
+        station_name: 観測所名（漢字）
+        station_name_kana: 観測所名（カナ）
+        station_name_romaji: 観測所名（ローマ字）
+        snow_gauge_station_name: 積雪の観測所名（漢字）
+        snow_gauge_station_name_kana: 積雪の観測所名（カナ）
+        snow_gauge_station_name_romaji: 積雪の観測所名（ローマ字）
+        latitude_degrees: 緯度（時）
+        latitude_minutes: 緯度（分）
+        longitude_degrees: 経度（時）
+        longitude_minutes: 経度（分）
+        height_above_sea_level: 標高
+        height_of_anemometer: 風向風速計の高さ
+        latitude_degrees_snow: 積雪の観測地点の緯度（時）
+        latitude_minutes_snow: 積雪の観測地点の緯度（分）
+        longitude_degrees_snow: 積雪の観測地点の経度（時）
+        longitude_minutes_snow: 積雪の観測地点の経度（分）
+        height_above_sea_level_snow: 積雪の観測地点の標高
+        precipitation_measurement_summary: 降水量の統計の有無
+        wind_measurement_summary: 風の統計の有無
+        temperature_measurement_summary: 気温の統計の有無
+        sunshine_duration_measurement_summary: 日照時間の統計の有無
+        snow_depth_measurement_summary: 積雪の統計の有無
+        humidity_measurement_summary: 湿度の統計の有無
+        observation_start_date: 観測開始年月日
+        observation_end_date: 観測終了年月日
+        old_station_number: 旧観測所番号
+        precipitation_statistics_link: 降水量の統計接続
+        wind_statistics_link: 風の統計接続
+        temperature_statistics_link: 気温の統計接続
+        sunshine_duration_statistics_link: 日照時間の統計接続
+        snow_depth_statistics_link: 積雪の深さの統計接続
+        humidity_statistics_link: 湿度の統計接続
+      weather_symbol:
+        weather_code: 天気コード
+        weather_symbol: 天気記号
+        weather: 天気
+        visual_observation: 目視観測
+        instrumental_observation: 機械観測
+      wind_direction:
+        compass_direction: 方位
+      weather_request:
+        observation_date_time: 観測日時
+        status: リクエスト状態
+        request_time: リクエスト時間
+        success_time: 正常結果取得時間
+        retry_count: リトライ回数
+        error_message: エラーメッセージ
+
+
+    # activerecord.errors.models.[model_name].attributes.[attribute_name]
+    # activerecord.errors.models.[model_name]
+    # activerecord.errors.messages
+    # errors.attributes.[attribute_name]
+    # errors.messages
+    errors:
+      models:
+        weather_station:
+          attributes:
+            base:
+              enddate_before_startdate: "開始日が終了日以前ではありません(station_number = %{station_number})"
+              overlapping_period: "重複する期間が存在します(station_number = %{station_number})"
+
+  errors:
+    messages:
+      invalid_amedas_file_error: "アメダス地点情報履歴ファイルに本システムで取り込めないデータ要素があります"
+      invalid_coordinate: "観測所の位置情報に問題があります(station_number = %{station_number})"
+      invalid_coordinate_snow: "観測所(雪)の位置情報に問題があります(station_number = %{station_number})"
+      enddate_before_startdate: "開始日が終了日以前ではありません(station_number = %{station_number})"
+      overlapping_period: "重複する期間が存在します(station_number = %{station_number})"
+      http_response_error: "外部サーバへのHTTP通信にて問題がありました"
+      get_region_error: "地域情報取得にてエラー(response code = %{response_code})"
+      get_weather_station_error: "AMEDAS地点情報取得にてエラー(response code = %{response_code})"
+      get_observation_location_error: "観測地点情報取得にてエラー(response code = %{response_code})"
+      station_not_found: "該当する観測所が存在しない (stid = %{stid} start date = %{start_date} end date = %{end_date})"
+      php_session_not_found: "PHP_SESSION情報が取得できなかった"
+      invalid_measurement_csv_file_error: "観測データ(CSV)ファイルに本システムで取り込めないデータ要素があります"
+      insufficient_columns: "観測データ(CSV)ファイルの列数が想定より不足しています (weather station id = %{weather_station_id} start date = %{start_date} end date = %{end_date})"
+      insufficient_rows: "観測データ(CSV)ファイルのデータ数が想定より不足しています (weather station id = %{weather_station_id} start date = %{start_date} end date = %{end_date})"
+      datetime_issue: "日時情報に何らかの問題があります (weather station id = %{weather_station_id} start date = %{start_date} end date = %{end_date})"
+      validation_error: "バリデーションエラーが発生しました (weather station id = %{weather_station_id} observation date time = %{observation_date_time} detail = [%{detail}])"
+      too_many_requests: "アクセス過多が発生しています"

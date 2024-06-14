@@ -1,0 +1,169 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sinoame:
+  weather_code: 44
+  weather_symbol: ↓↓↓↓
+  weather: 死の雨
+  visual_observation: true
+  instrumental_observation: false
+
+clear_skies:
+  weather_code: 1
+  weather_symbol: 快晴
+  weather: 快晴
+  visual_observation: true
+  instrumental_observation: false
+
+sunny:
+  weather_code: 2
+  weather_symbol: 晴れ
+  weather: 晴れ
+  visual_observation: true
+  instrumental_observation: true
+
+lightly_cloudy:
+  weather_code: 3
+  weather_symbol: 薄曇
+  weather: 薄曇
+  visual_observation: true
+  instrumental_observation: false
+
+cloudy:
+  weather_code: 4
+  weather_symbol: 曇
+  weather: 曇
+  visual_observation: true
+  instrumental_observation: true
+
+smoke:
+  weather_code: 5
+  weather_symbol: 煙霧
+  weather: 煙霧
+  visual_observation: true
+  instrumental_observation: true
+
+dust_storm:
+  weather_code: 6
+  weather_symbol: 砂じん嵐
+  weather: 砂じん嵐
+  visual_observation: true
+  instrumental_observation: false
+
+earthquake:
+  weather_code: 7
+  weather_symbol: 地ふぶき
+  weather: 地ふぶき
+  visual_observation: true
+  instrumental_observation: false
+
+fog:
+  weather_code: 8
+  weather_symbol: 霧
+  weather: 霧
+  visual_observation: true
+  instrumental_observation: true
+
+drizzle:
+  weather_code: 9
+  weather_symbol: 霧雨
+  weather: 霧雨
+  visual_observation: true
+  instrumental_observation: true
+
+rain:
+  weather_code: 10
+  weather_symbol: 雨
+  weather: 雨
+  visual_observation: true
+  instrumental_observation: true
+
+sleet:
+  weather_code: 11
+  weather_symbol: みぞれ
+  weather: みぞれ
+  visual_observation: true
+  instrumental_observation: true
+
+snow:
+  weather_code: 12
+  weather_symbol: 雪
+  weather: 雪
+  visual_observation: true
+  instrumental_observation: true
+
+hailstone:
+  weather_code: 13
+  weather_symbol: あられ
+  weather: あられ
+  visual_observation: true
+  instrumental_observation: false
+
+hail:
+  weather_code: 14
+  weather_symbol: ひょう
+  weather: ひょう
+  visual_observation: true
+  instrumental_observation: true
+
+thunder:
+  weather_code: 15
+  weather_symbol: 雷
+  weather: 雷
+  visual_observation: true
+  instrumental_observation: false
+
+showers_or_intermittent_rain:
+  weather_code: 16
+  weather_symbol: しゅう雨または止み間のある雨
+  weather: しゅう雨または止み間のある雨
+  visual_observation: false
+  instrumental_observation: true
+
+freezing_rain:
+  weather_code: 17
+  weather_symbol: 着氷性の雨
+  weather: 着氷性の雨
+  visual_observation: false
+  instrumental_observation: true
+
+icing_drizzle:
+  weather_code: 18
+  weather_symbol: 着氷性の霧雨
+  weather: 着氷性の霧雨
+  visual_observation: false
+  instrumental_observation: true
+
+snow_showers_or_intermittent_snow:
+  weather_code: 19
+  weather_symbol: しゅう雪または止み間のある雪
+  weather: しゅう雪または止み間のある雪
+  visual_observation: false
+  instrumental_observation: true
+
+misty_snow:
+  weather_code: 22
+  weather_symbol: 霧雪
+  weather: 霧雪
+  visual_observation: false
+  instrumental_observation: true
+
+thin_ice:
+  weather_code: 24
+  weather_symbol: 細氷
+  weather: 細氷
+  visual_observation: false
+  instrumental_observation: true
+
+mist:
+  weather_code: 28
+  weather_symbol: もや
+  weather: もや
+  visual_observation: false
+  instrumental_observation: true
+
+precipitation_or_shower_precipitation:
+  weather_code: 101
+  weather_symbol: 降水またはしゅう雨性の降水
+  weather: 降水またはしゅう雨性の降水
+  visual_observation: false
+  instrumental_observation: true

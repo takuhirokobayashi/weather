@@ -1,0 +1,8 @@
+<%= content_for :javascript do %>
+  <%= javascript_tag do %>
+    document.addEventListener( 'DOMContentLoaded', function() {
+    weatherRequest( 'weather_request_table' );
+    } );
+  <% end %>
+<% end %>
+<div id="weather_request_table"></div>

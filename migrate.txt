@@ -1,0 +1,171 @@
+観測概要と観測所一覧(時系列を含む観測所及びAMEDASの一覧)
+https://www.data.jma.go.jp/obd/stats/data/mdrr/man/kansoku_gaiyou.html
+一覧(CSVフォーマット)
+https://www.data.jma.go.jp/stats/data/mdrr/chiten/meta/amdmaster.index4
+フォーマット、説明
+https://www.data.jma.go.jp/obd/stats/data/mdrr/man/amdmasterindex4_format.pdf
+
+地域
+bin/rails g model Region \
+  prid:string \
+  name:string
+
+観測地点
+bin/rails g model ObservationLocation \
+  region:references \
+  stid:string \
+  stname:string
+
+AMEDAS
+bin/rails g model WeatherStation \
+  observation_location:references \
+  station_number:string \
+  station_name:string \
+  station_name_kana:string \
+  station_name_romaji:string \
+  snow_gauge_station_name:string \
+  snow_gauge_station_name_kana:string \
+  snow_gauge_station_name_romaji:string \
+  latitude_degrees:integer \
+  'latitude_minutes:decimal{3,1}' \
+  longitude_degrees:integer \
+  'longitude_minutes:decimal{3,1}' \
+  height_above_sea_level:integer \
+  'height_of_anemometer:decimal{4,1}' \
+  latitude_degrees_snow:integer \
+  'latitude_minutes_snow:decimal{3,1}' \
+  longitude_degrees_snow:integer \
+  'longitude_minutes_snow:decimal{3,1}' \
+  height_above_sea_level_snow:integer \
+  precipitation_measurement_summary:boolean \
+  wind_measurement_summary:boolean \
+  temperature_measurement_summary:boolean \
+  sunshine_duration_measurement_summary:string \
+  snow_depth_measurement_summary:boolean \
+  humidity_measurement_summary:boolean \
+  observation_start_date:date \
+  observation_end_date:date \
+  old_station_number:string \
+  precipitation_statistics_link:string \
+  wind_statistics_link:string \
+  temperature_statistics_link:string \
+  sunshine_duration_statistics_link:string \
+  snow_depth_statistics_link:string \
+  humidity_statistics_link:string
+
+
+https://www.data.jma.go.jp/risk/obsdl/top/help3.html
+https://www.data.jma.go.jp/stats/data/mdrr/docs/csv_dl_format_remark.html
+天気種別 テーブル
+  Value: 値
+  Weather Symbol: 天気記号
+  Weather: 天気
+  Visual Observation: 目視観測
+  Instrumental Observation: 機械観測
+
+bin/rails g model WeatherSymbol \
+  weather_code:integer \
+  weather_symbol:string \
+  weather:string \
+  visual_observation:boolean \
+  instrumental_observation:boolean
+
+風向 テーブル
+  Compass Direction: 16方位
+
+bin/rails g model WindDirection \
+  compass_direction:string
+
+https://www.data.jma.go.jp/stats/data/mdrr/man/sampling.html
+計測データ テーブル
+  Temperature 気温
+  Precipitation 降水量
+  Snowfall 降雪
+  Snow Depth 積雪
+  Sunshine Duration 日照時間
+  Wind Speed 風速
+  Wind Direction 風向
+  Solar Radiation 日射量
+  Local Atmospheric Pressure 現地気圧
+  Sea Level Pressure 海面気圧
+  Relative Humidity 相対湿度
+  Vapor Pressure 蒸気圧
+  Dew Point Temperature 露点温度
+  Weather 天気
+  Cloud Cover 雲量
+  Visibility 視程
+
+  Quality Information 品質情報
+  Homogeneity Number 均質番号
+  No Phenomena Information 現象なし情報
+
+bin/rails g model Measurement \
+  weather_station:references \
+  observation_date_time:datetime \
+  'temperature:decimal{5,2}' \
+  temperature_quality_information:integer \
+  temperature_homogeneity_number:integer \
+  'precipitation:decimal{7,2}' \
+  precipitation_no_phenomena_information:boolean \
+  precipitation_quality_information:integer \
+  precipitation_homogeneity_number:integer \
+  snowfall:integer \
+  snowfall_no_phenomena_information:boolean \
+  snowfall_quality_information:integer \
+  snowfall_homogeneity_number:integer \
+  snow_depth:integer \
+  snow_depth_no_phenomena_information:boolean \
+  snow_depth_quality_information:integer \
+  snow_depth_homogeneity_number:integer \
+  'sunshine_duration:decimal{4,2}' \
+  sunshine_duration_no_phenomena_information:boolean \
+  sunshine_duration_quality_information:integer \
+  sunshine_duration_homogeneity_number:integer \
+  'wind_speed:decimal{6,2}' \
+  wind_speed_quality_information:integer \
+  wind_direction:references \
+  wind_direction_quality_information:integer \
+  wind_direction_homogeneity_number:integer \
+  solar_radiation:integer \
+  solar_radiation_quality_information:integer \
+  solar_radiation_homogeneity_number:integer \
+  'local_atmospheric_pressure:decimal{7,2}' \
+  local_atmospheric_pressure_quality_information:integer \
+  local_atmospheric_pressure_homogeneity_number:integer \
+  'sea_atmospheric_pressure:decimal{7,2}' \
+  sea_atmospheric_pressure_quality_information:integer \
+  sea_atmospheric_pressure_homogeneity_number:integer \
+  relative_humidity:integer \
+  relative_humidity_quality_information:integer \
+  relative_humidity_homogeneity_number:integer \
+  'vapor_pressure:decimal{6,2}' \
+  vapor_pressure_quality_information:integer \
+  vapor_pressure_homogeneity_number:integer \
+  'dew_point_temperature:decimal{5,2}' \
+  dew_point_temperature_quality_information:integer \
+  dew_point_temperature_homogeneity_number:integer \
+  weather_symbol:references \
+  weather_quality_information:integer \
+  weather_homogeneity_number:integer \
+  cloud_cover:integer \
+  cloud_cover_quality_information:integer \
+  cloud_cover_homogeneity_number:integer \
+  'visibility:decimal{6,3}' \
+  visibility_quality_information:integer \
+  visibility_homogeneity_number:integer
+
+bin/rails g migration RemoveRegionFromObservationLocations region:references
+bin/rails g model RegionObservationLocation region:references observation_location:references
+
+bin/rails g model WeatherRequest \
+  observation_location:references \
+  observation_date_time:datetime \
+  status:string \
+  request_time:datetime \
+  success_time:datetime \
+  retry_count:integer \
+  error_message:text \
+  measurement:references
+
+bin/rails g model AppState \
+  state:string
